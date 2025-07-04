@@ -17,9 +17,6 @@
  */
 
 /* exported init */
-
-const GETTEXT_DOMAIN = "my-indicator-extension";
-
 const { GLib, GObject, St, Gio, Clutter } = imports.gi;
 const Slider = imports.ui.slider;
 
@@ -27,7 +24,7 @@ const ExtensionUtils = imports.misc.extensionUtils;
 const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;
-const _ = ExtensionUtils.gettext;
+
 const ddcNrs = {
 	brightness: "10",
 	contrast: "12",
@@ -112,11 +109,7 @@ const Indicator = GObject.registerClass(
 
 			const newDisplayObj = async (display) => {
 				const makeSlider = async (set) => {
-					let menuItem = new PopupMenu.PopupBaseMenuItem({
-    					// can_focus: false,
-						// hover: false,
-    					// reactive: false
-					});
+					let menuItem = new PopupMenu.PopupBaseMenuItem();
 
 					menuItem.setOrnament(PopupMenu.Ornament.HIDDEN);
 
@@ -152,6 +145,7 @@ const Indicator = GObject.registerClass(
 						changeSet(display, set, oldValue);
 						waiting = false;
 					};
+
 					const sliderChange = () => {
 						const value = (slider.value * 100).toFixed(0);
 						oldValue = value;
@@ -174,12 +168,8 @@ const Indicator = GObject.registerClass(
 				};
 
 				let menuLabel = new PopupMenu.PopupMenuItem(display.name, {
-					// can_focus:false,
-					// hover:false,
 					reactive:false,
-					//activate: false
 				});
-				//menuLabel.setOrnament(PopupMenu.Ornament.HIDDEN);
 				this.menu.addMenuItem(menuLabel);
 
 				let separator = new PopupMenu.PopupSeparatorMenuItem();
@@ -208,7 +198,6 @@ const Indicator = GObject.registerClass(
 class Extension {
 	constructor(uuid) {
 		this._uuid = uuid;
-		ExtensionUtils.initTranslations(GETTEXT_DOMAIN);
 	}
 	enable() {
 		this._indicator = new Indicator();

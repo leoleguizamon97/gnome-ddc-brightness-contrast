@@ -1,0 +1,17 @@
+{
+  "name": "Monitor DDC Brightness/Contrast",
+  "description": "Control Monitor brightness and contrast with ddcutil. ddcutil must be installed. For more details, refer to the project's documentation page. This fork was created to remove the extra Dim slider, change icons, and improve the overall visual appearance. This extension is a **FORK** of [tzawezin's project](https://github.com/tzawezin/gnome-ddc-brightness-contrast-extra-dimming) (Version 16)" ,
+  "uuid": "gnome-ddc-brightness-contrast@leoleguizamon97.github.io",
+  "shell-version": [
+    "40",
+    "41",
+    "42",
+    "43",
+    "44"
+  ],
+  "url": "https://github.com/leoleguizamon97/gnome-ddc-brightness-contrast",
+  "donations": {
+    "paypal": "leoleguizamon97"
+  },
+  "version": 0.1
+}
