@@ -1,39 +1,41 @@
-## Set Monitor DDC Brightness/Contrast + Extra Dimming
+# Set Monitor DDC Brightness/Contrast
 
 ![screenshot](screenshot.png)
 
-### Installation and Configuration
+- Slider 1: Brillo / Brightness
+- Slider 2: Contraste / Contrast
 
-#### Install ddcutil
-```
+## Intalación \ Installation
+
+### ddcutil
+
+Es necesario instalar y realizar la siguiente configuracion antes de poder usar la extensión
+
+You need to install and configure the following settings before you can use the extension.
+
+``` bash
 sudo apt install ddcutil
-```
-
-#### Make sure i2c-dev is loaded
-After installing ddcutil, make sure i2c-dev is loaded:
-```
 sudo modprobe i2c-dev
-```
-or add i2c-dev to the /etc/modules file.  
-(More info: https://www.ddcutil.com/config_steps/)
-
-#### Add your user to group i2c
-```
 sudo usermod -aG i2c $USER
 ```
-(More info: https://www.ddcutil.com/i2c_permissions_using_group_i2c/)
+### Cerrar sesión Log out
 
-#### You can check if its working by trying:
-```
-ddcutil detect
-```
+Es necesario cerrar la sesión después del proceso de instalación para que la extensión funcione
 
-#### More info:
-https://www.ddcutil.com/install_config_main/
-
-#### Install this GNOME extension
-Last but not least, get this extension here: [Monitor DDC Brightness/Contrast + Extra Dimming](https://extensions.gnome.org/extension/6985/set-monitor-ddc-brightnesscontrast-extra-dimming/)  
-(Also available from your Extension Manager.)
-
-#### Log out / Log in
 You need to log out/log in after doing all the installation and configuration procedure for this extension to work.
+
+## Acerca de / About
+
+La extensión es un **FORK** del [proyecto de tzawezin](https://github.com/tzawezin/gnome-ddc-brightness-contrast-extra-dimming) (Versión 16), usando el código de la extensión para Debian 12.  
+
+Es posible que no funcione correctamente con entornos gnome mas recientes
+
+Se realiza con la intención de eliminar el slider de "extra dimm", cambiar iconos y mejorar aspecto visual en general.
+
+---
+
+The extension is a **FORK** of [tzawezin's project](https://github.com/tzawezin/gnome-ddc-brightness-contrast-extra-dimming) (Version 16), using the extension's code for Debian 12.  
+
+It may not work properly with newer GNOME environments.  
+
+This fork was created to remove the "Extra Dim" slider, change icons, and improve the overall visual appearance.

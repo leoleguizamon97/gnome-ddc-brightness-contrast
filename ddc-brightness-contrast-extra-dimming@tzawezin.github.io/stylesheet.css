@@ -1,7 +1,11 @@
-/* Add your custom extension styling here */
-.system-status-icon2 {
+.monitor-icon {
     height: 20px !important;
     width: 20px !important;
 }
-
-.system-status-icon2 {}
+.monitor-slider {
+    width: 200px;
+}
+/*Remove if necessary. This affects the width *ALL* sliders*/
+.slider{
+    width: 300px;
+}

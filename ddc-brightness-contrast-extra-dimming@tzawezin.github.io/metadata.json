@@ -1,14 +1,14 @@
 {
-  "name": "Monitor DDC Brightness/Contrast + Extra Dimming",
-  "description": "Control brightness and contrast with ddc and extra screen dimming with black overlay, It requires ddcutil to be installed, i2c permissions for non-root users configured.",
-  "uuid": "ddc-brightness-contrast-extra-dimming@tzawezin.github.io",
+  "name": "Monitor DDC Brightness/Contrast",
+  "description": "Control brightness and contrast with ddc, It requires ddcutil to be installed, i2c permissions for non-root users configured. **dc-brightness-contrast-extra-dimming@tzawezin.github.io FORK**" ,
+  "uuid": "",
   "shell-version": [
     "45",
     "46",
     "47"
   ],
-  "url": "https://github.com/tzawezin/gnome-ddc-brightness-contrast-extra-dimming",
+  "url": "https://github.com/leoleguizamon97/gnome-ddc-brightness-contrast",
   "donations": {
-    "paypal": "1gijs1"
+    "paypal": ""
   }
 }
