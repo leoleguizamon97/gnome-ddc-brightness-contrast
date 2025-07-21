@@ -2,9 +2,6 @@
     height: 20px !important;
     width: 20px !important;
 }
-.monitor-slider {
-    width: 200px;
-}
 /*Remove if necessary. This affects the width *ALL* sliders*/
 .slider{
     width: 300px;

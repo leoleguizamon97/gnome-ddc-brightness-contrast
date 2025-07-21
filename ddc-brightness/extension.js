@@ -17,13 +17,17 @@
  */
 
 /* exported init */
-const { GLib, GObject, St, Gio, Clutter } = imports.gi;
-const Slider = imports.ui.slider;
-
-const ExtensionUtils = imports.misc.extensionUtils;
-const Main = imports.ui.main;
-const PanelMenu = imports.ui.panelMenu;
-const PopupMenu = imports.ui.popupMenu;
+const GETTEXT_DOMAIN = 'my-indicator-extension';
+import Gio from 'gi://Gio';
+import GObject from 'gi://GObject';
+import St from 'gi://St';
+import Clutter from 'gi://Clutter';
+import GLib from 'gi://GLib';
+import { Slider } from 'resource:///org/gnome/shell/ui/slider.js';
+import { Extension, gettext as _ } from 'resource:///org/gnome/shell/extensions/extension.js';
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
+import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 
 const ddcNrs = {
 	brightness: "10",
@@ -38,7 +42,6 @@ function changeSet(display, set, value) {
 }
 
 let displays = [];
-let overviewHandlers = [];
 
 async function getCmdOut(cmd) {
 	return new Promise((resolve, reject) => {
@@ -107,7 +110,7 @@ const Indicator = GObject.registerClass(
 				}
 			};
 
-			const newDisplayObj = async (display) => {
+				const newDisplayObj = async (display) => {
 				const makeSlider = async (set) => {
 					let menuItem = new PopupMenu.PopupBaseMenuItem();
 
@@ -123,9 +126,7 @@ const Indicator = GObject.registerClass(
 					]);
 
 					oldValue = Number(oldValue.split(" ")[3]);
-					let slider = new Slider.Slider({
-						style_class: "monitor-slider",
-					});
+					let slider = new Slider(oldValue / 100);
 
 					slider.value = oldValue / 100;
 					let waiting = false;
@@ -134,13 +135,13 @@ const Indicator = GObject.registerClass(
 						waiting = true;
 						await new Promise(
 							(r) =>
-								(display.sliderTimeouts[set] = setTimeout(
-									() => {
-										delete display.sliderTimeouts[set];
-										r();
-									},
-									400
-								))
+							(display.sliderTimeouts[set] = setTimeout(
+								() => {
+									delete display.sliderTimeouts[set];
+									r();
+								},
+								400
+							))
 						);
 						changeSet(display, set, oldValue);
 						waiting = false;
@@ -195,10 +196,7 @@ const Indicator = GObject.registerClass(
 	}
 );
 
-class Extension {
-	constructor(uuid) {
-		this._uuid = uuid;
-	}
+export default class MonitorDDCBrightnessExtension extends Extension {
 	enable() {
 		this._indicator = new Indicator();
 		Main.panel.addToStatusArea(this._uuid, this._indicator);
@@ -206,11 +204,6 @@ class Extension {
 	disable() {
 		this._indicator.destroy();
 		displays = [];
-		overviewHandlers = [];
 		this._indicator = null;
 	}
-}
-
-function init(meta) {
-	return new Extension(meta.uuid);
 }
