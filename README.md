@@ -5,11 +5,11 @@
 - Slider 1: Brillo / Brightness
 - Slider 2: Contraste / Contrast
 
-## Intalación \ Installation
+## Intalación / Installation
 
 ### ddcutil
 
-Es necesario instalar y realizar la siguiente configuracion antes de poder usar la extensión
+Es necesario instalar y realizar la siguiente configuracion antes de poder usar la extensión.
 
 You need to install and configure the following settings before you can use the extension.
 
@@ -18,24 +18,20 @@ sudo apt install ddcutil
 sudo modprobe i2c-dev
 sudo usermod -aG i2c $USER
 ```
-### Cerrar sesión Log out
+### Cerrar sesión / Log out
 
-Es necesario cerrar la sesión después del proceso de instalación para que la extensión funcione
+Es necesario cerrar la sesión después del proceso de instalación para que la extensión funcione.
 
 You need to log out/log in after doing all the installation and configuration procedure for this extension to work.
 
 ## Acerca de / About
 
-La extensión es un **FORK** del [proyecto de tzawezin](https://github.com/tzawezin/gnome-ddc-brightness-contrast-extra-dimming) (Versión 16), usando el código de la extensión para Debian 12.  
+La extensión es un **FORK** del [proyecto de tzawezin](https://github.com/tzawezin/gnome-ddc-brightness-contrast-extra-dimming) (Versión 15 y 16).  
 
-Es posible que no funcione correctamente con entornos gnome mas recientes
-
-Se realiza con la intención de eliminar el slider de "extra dimm", cambiar iconos y mejorar aspecto visual en general.
+Se realiza con la intención de eliminar el slider de "Extra dimm", cambiar iconos y mejorar aspecto visual en general.
 
 ---
 
-The extension is a **FORK** of [tzawezin's project](https://github.com/tzawezin/gnome-ddc-brightness-contrast-extra-dimming) (Version 16), using the extension's code for Debian 12.  
-
-It may not work properly with newer GNOME environments.  
+The extension is a **FORK** of [tzawezin's project](https://github.com/tzawezin/gnome-ddc-brightness-contrast-extra-dimming) (Version 15 and 16).
 
 This fork was created to remove the "Extra Dim" slider, change icons, and improve the overall visual appearance.
