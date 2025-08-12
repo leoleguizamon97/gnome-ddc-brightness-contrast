@@ -18,6 +18,7 @@ sudo apt install ddcutil
 sudo modprobe i2c-dev
 sudo usermod -aG i2c $USER
 ```
+
 ### Cerrar sesión / Log out
 
 Es necesario cerrar la sesión después del proceso de instalación para que la extensión funcione.
